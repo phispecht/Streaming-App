@@ -27,7 +27,7 @@ app.use(
 
 app.get("/handleClick/:id", (req, res) => {
     const id = req.params.id;
-    const options = config.handleOptionClick(id);
+    const options = config.handleOption(id);
 
     axios
         .request(options)
@@ -39,9 +39,9 @@ app.get("/handleClick/:id", (req, res) => {
         });
 });
 
-app.get("/handleHover/:inputValue", (req, res) => {
+app.get("/handleHover/:id", (req, res) => {
     const id = req.params.id;
-    const options = config.handleOptionHover(id);
+    const options = config.handleOption(id);
 
     axios
         .request(options)

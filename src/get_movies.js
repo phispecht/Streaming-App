@@ -51,7 +51,6 @@ export default function Get_Movies() {
         axios
             .get(`/handleHover/${id}`)
             .then((response) => {
-                setHoverID(id);
                 setHoverShow(true);
                 setMovieDetails(response.data);
             })
@@ -107,6 +106,8 @@ export default function Get_Movies() {
             );
         }
     }
+
+    console.log("movieDetails:", movieDetails);
 
     return (
         <div className="movieContainer-parent">
@@ -309,24 +310,24 @@ export default function Get_Movies() {
                                 : "No description available"}
                             <div className="modalDetails">
                                 <h3>Movie Details</h3>
-                                <span>
+                                <div className="modalDetailsData">
                                     Rating:{" "}
                                     {movieDetails.rating
                                         ? movieDetails.rating
                                         : "-"}
-                                </span>
-                                <span>
+                                </div>
+                                <div className="modalDetailsData">
                                     Lenght:{" "}
                                     {movieDetails.length
                                         ? movieDetails.length
                                         : "-"}
-                                </span>
-                                <span>
+                                </div>
+                                <div className="modalDetailsData">
                                     Year:{" "}
                                     {movieDetails.year
                                         ? movieDetails.year
                                         : "-"}
-                                </span>
+                                </div>
                                 <div className="actors">
                                     <h3>Actors</h3>
                                     {movieDetails.cast.map((element) => (

@@ -265,8 +265,13 @@ nav .navElement [id] {
     font-size: 16px;
 }
 
-.modalDetails span:not(:first-of-type) {
-    margin-left: 20px;
+.modalDetails .modalDetailsData:not(:last-of-type) {
+    margin-right: 20px;
+}
+
+.modalDetails .modalDetailsData {
+    display: inline-block;
+    white-space: nowrap;
 }
 
 .actors p {
@@ -510,6 +515,7 @@ a {
     .backgroundTrailerButton {
         margin: 0 auto;
         margin-top: 30px;
+        width: 100%;
     }
 
     .movieContainer {
@@ -523,21 +529,30 @@ a {
 
     .movieText {
         padding: 15px;
-        width: 94%;
+        width: 93%;
         background: linear-gradient(
             0deg,
-            rgba(0, 0, 0, 1) 60%,
-            rgba(0, 0, 0, 0.7066176812521884) 85%,
+            rgba(0, 0, 0, 1) 50%,
+            rgba(0, 0, 0, 0.7066176812521884) 97%,
             rgba(0, 0, 0, 0) 100%
         );
+        margin-bottom: -250px;
     }
 
     .modal {
         width: 100%;
+        overflow-y: scroll;
+        height: 500px;
     }
 
     .arrow {
         bottom: 200px;
         left: 53px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    #search {
+        width: 280px;
     }
 }
