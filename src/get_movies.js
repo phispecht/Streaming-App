@@ -301,10 +301,7 @@ export default function Get_Movies() {
                             src={movieDetails.poster}
                             onError={(e) => defaultImg(e)}
                         />
-                        <div
-                            onClick={() => handleShowDetails(movieDetails.id)}
-                            className="movieText"
-                        >
+                        <div className="movieText">
                             {movieDetails.plot
                                 ? movieDetails.plot
                                 : "No description available"}
