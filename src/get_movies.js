@@ -18,7 +18,7 @@ export default function Get_Movies() {
     };
 
     if (inputValue == "") {
-        setInputValue("lost");
+        setInputValue("Game of thrones");
     }
 
     //////// show modal on click ///////////
@@ -107,8 +107,6 @@ export default function Get_Movies() {
         }
     }
 
-    console.log("movieDetails:", movieDetails);
-
     return (
         <div className="movieContainer-parent">
             <nav>
@@ -116,7 +114,7 @@ export default function Get_Movies() {
                     <h1 id="logo">Watch this</h1>
                     <div id="search">
                         <input
-                            placeholder="lost"
+                            placeholder="Game of thrones"
                             onChange={(e) => handleChange(e)}
                             id="search"
                             type="text"
@@ -190,7 +188,6 @@ export default function Get_Movies() {
                                             onError={(e) => defaultImg(e)}
                                         />
                                     </div>
-
                                     <div className="backgroundChild">
                                         <div className="backgroundTitle">
                                             {element.title}
