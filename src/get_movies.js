@@ -18,7 +18,7 @@ export default function Get_Movies() {
     };
 
     if (inputValue == "") {
-        setInputValue("Game of thrones");
+        setInputValue("Star Wars: Episode");
     }
 
     //////// show modal on click ///////////
@@ -114,7 +114,7 @@ export default function Get_Movies() {
                     <h1 id="logo">Watch this</h1>
                     <div id="search">
                         <input
-                            placeholder="Game of thrones"
+                            placeholder="Star Wars: Episode"
                             onChange={(e) => handleChange(e)}
                             id="search"
                             type="text"
