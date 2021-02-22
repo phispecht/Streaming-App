@@ -1,6 +1,6 @@
 # Streaming-App
 
-An app that allows to search for movies giving back some more details including a trailer of the film the user is searching for.
+In this app the user can search for movies. The search results contain more details of the movie including trailers.
 
 ## Usage
 
