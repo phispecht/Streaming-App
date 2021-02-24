@@ -98,6 +98,7 @@ nav .navElement [id] {
     display: inline-block;
     margin-right: 20px;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .movieContainer {
@@ -112,6 +113,7 @@ nav .navElement [id] {
     width: 280px;
     height: 200px;
     object-fit: cover;
+    filter: brightness(0.8);
 }
 
 .movieContainer:hover {
@@ -334,6 +336,7 @@ nav .navElement [id] {
 .modal img {
     border-radius: 7px;
     width: 100%;
+    filter: brightness(0.8);
 }
 
 .blurBackground {
