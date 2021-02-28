@@ -101,9 +101,7 @@ export default function Get_Movies() {
                 </a>
             );
         } else {
-            trailerButton = (
-                <div className="trailerText">Trailer available soon</div>
-            );
+            trailerButton = <span></span>;
         }
     }
 
@@ -112,7 +110,8 @@ export default function Get_Movies() {
             <nav>
                 <div className="navElement">
                     <h1 id="logo">Watch this</h1>
-                    <div id="search">
+                    <div id="search-container">
+                        <i className="fas fa-search"></i>
                         <input
                             placeholder="Star Wars: Episode"
                             onChange={(e) => handleChange(e)}
@@ -128,15 +127,10 @@ export default function Get_Movies() {
             <div className="backgroundOnHover-parent">
                 {movie && hoverID == 0 && (
                     <div className="backgroundOnHover">
-                        <div className="backgroundChild">
-                            <img
-                                onClick={() =>
-                                    handleShowDetails(movie.titles[0].id)
-                                }
-                                src={movie.titles[0].image}
-                                onError={(e) => defaultImg(e)}
-                            />
-                        </div>
+                        <img
+                            src={movie.titles[0].image}
+                            onError={(e) => defaultImg(e)}
+                        />
 
                         <div className="backgroundChild">
                             <div className="backgroundTitle">
@@ -176,18 +170,17 @@ export default function Get_Movies() {
 
                 {movie &&
                     movie.titles.map((element) => (
-                        <div key={element.id}>
+                        <div
+                            className="background-container-onChange"
+                            key={element.id}
+                        >
                             {hoverShow && hoverID == element.id && (
                                 <div className="backgroundOnHover">
-                                    <div className="backgroundChild">
-                                        <img
-                                            onClick={() =>
-                                                handleShowDetails(element.id)
-                                            }
-                                            src={element.image}
-                                            onError={(e) => defaultImg(e)}
-                                        />
-                                    </div>
+                                    <img
+                                        src={element.image}
+                                        onError={(e) => defaultImg(e)}
+                                    />
+
                                     <div className="backgroundChild">
                                         <div className="backgroundTitle">
                                             {element.title}
@@ -220,7 +213,21 @@ export default function Get_Movies() {
                                                             : "-"}
                                                     </div>
                                                 </div>
-                                                {trailerButton}
+                                                <div className="backgroundOnHover-button-container">
+                                                    <div>{trailerButton}</div>
+                                                    <div>
+                                                        <button
+                                                            className="moreInfoButton"
+                                                            onClick={() =>
+                                                                handleShowDetails(
+                                                                    element.id
+                                                                )
+                                                            }
+                                                        >
+                                                            More Information
+                                                        </button>
+                                                    </div>
+                                                </div>
                                             </>
                                         )}
                                         {showModal && (
@@ -233,56 +240,71 @@ export default function Get_Movies() {
                             )}
                         </div>
                     ))}
+            </div>
+            {/* Show search results on input */}
 
-                {/* Show search results on input */}
-
-                <div className="movieContainer-subParent">
-                    <h2>What you are looking for</h2>
-                    {movie &&
-                        movie.titles.map((element) => (
-                            <div
-                                onClick={() => handleShowDetails(element.id)}
-                                onMouseOver={() => handleHover(element.id)}
-                                className="movieContainer"
-                                key={element.id}
-                            >
-                                <img
-                                    src={element.image}
-                                    onError={(e) => defaultImg(e)}
-                                />
-                                <div className="title-container">
-                                    <div className="title">{element.title}</div>{" "}
-                                    {hoverShow && hoverID == element.id && (
-                                        <>
+            <div className="movieContainer-subParent-container">
+                <h2>What you are looking for</h2>
+                <i className="fas fa-chevron-right"></i>
+                <i className="fas fa-chevron-left"></i>
+                <div className="movieContainer-subParent-parent">
+                    <div className="movieContainer-subParent">
+                        <>
+                            {movie &&
+                                movie.titles.map((element) => (
+                                    <div
+                                        onClick={() =>
+                                            handleShowDetails(element.id)
+                                        }
+                                        onMouseOver={() =>
+                                            handleHover(element.id)
+                                        }
+                                        className="movieContainer"
+                                        key={element.id}
+                                    >
+                                        <img
+                                            src={element.image}
+                                            onError={(e) => defaultImg(e)}
+                                        />
+                                        <div className="title-container">
+                                            <div className="title">
+                                                {element.title}
+                                            </div>{" "}
                                             <span className="hoverShow">
-                                                <span>
-                                                    Rating:{" "}
-                                                    {movieDetails.rating
-                                                        ? movieDetails.rating
-                                                        : "-"}
-                                                </span>
-                                                <span>
-                                                    Lenght:{" "}
-                                                    {movieDetails.length
-                                                        ? movieDetails.length
-                                                        : "-"}
-                                                </span>
-                                                <span>
-                                                    Year:{" "}
-                                                    {movieDetails.year
-                                                        ? movieDetails.year
-                                                        : "-"}
-                                                </span>
+                                                {hoverShow &&
+                                                    hoverID == element.id && (
+                                                        <>
+                                                            <span>
+                                                                Rating:{" "}
+                                                                {movieDetails.rating
+                                                                    ? movieDetails.rating
+                                                                    : "-"}
+                                                            </span>
+                                                            <span>
+                                                                Length:{" "}
+                                                                {movieDetails.length
+                                                                    ? movieDetails.length
+                                                                    : "-"}
+                                                            </span>
+                                                            <span>
+                                                                Year:{" "}
+                                                                {movieDetails.year
+                                                                    ? movieDetails.year
+                                                                    : "-"}
+                                                            </span>
+                                                        </>
+                                                    )}
                                             </span>
-                                        </>
-                                    )}
-                                </div>
-                            </div>
-                        ))}
+                                        </div>
+                                    </div>
+                                ))}
+                        </>
+                    </div>
                 </div>
-                <div id="footer">
-                    <span>by Philipp Specht</span>
-                </div>
+            </div>
+
+            <div id="footer">
+                <span>by Philipp Specht</span>
             </div>
 
             {/* Show modal on click */}
@@ -331,7 +353,9 @@ export default function Get_Movies() {
                                     ))}
                                 </div>
                             </div>
-                            {trailerButton}
+                            <div className="backgroundOnHover-button-container">
+                                <div>{trailerButton}</div>
+                            </div>
                         </div>
                     </div>
                     <div

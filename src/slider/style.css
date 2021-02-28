@@ -1,0 +1,66 @@
+.movieContainer-subParent-parent {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.movieContainer-subParent {
+    white-space: nowrap;
+}
+
+#icon_right {
+    right: 20;
+    cursor: pointer;
+    margin-top: -200px;
+    position: fixed;
+}
+#icon_left {
+    left: 20;
+    cursor: pointer;
+    margin-top: -200px;
+    position: fixed;
+}
+.transition {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+}
+img {
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    cursor: pointer;
+}
+
+.fa-chevron-right,
+.fa-chevron-left {
+    position: absolute;
+    color: white;
+    font-size: 38px;
+    cursor: pointer;
+    z-index: 2;
+    top: 50%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.movieContainer-animate {
+    animation-name: animate;
+    animation-duration: 0.4s;
+}
+
+@keyframes animate {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fa-chevron-right {
+    left: 95%;
+}
